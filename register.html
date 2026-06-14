@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New register</title>
+    <style>
+        #signinbutton{
+            width:210px; height:30px;
+        }
+        button{
+            background-color: #9CAFAA;
+          } 
+          button:hover{
+            background-color: #BBD5DA;
+          }
+    </style>
+</head>
+<body style="text-align: center; background-color: #BFC6C4;">
+    <div style="width: 300px; height: 300px; margin: auto; margin-top: 0px; background-color: #708993; padding: 30px;"> 
+    <h1 style="margin-right: 40px; margin-left: 30px; font-family: monospace; font-weight: bold; font-size: 30px;">New register</h1>
+
+    <br>
+    
+    <input placeholder="Username" type="text" id="newUser" style=" width: 200px; height: 20px;">
+
+    <br><br>
+
+    <input placeholder="Email" type="text" id="newEmail"style=" width: 200px; height: 20px;">
+
+    <br><br>
+
+    <input placeholder="Password" type="password" id="newPassword" style=" width: 200px; height: 20px;">
+
+    <br><br>
+
+    <input placeholder="confirm password" type="password" id="confirmpassword" style=" width: 200px; height: 20px;">
+
+    <br><br>
+
+    <button onclick="signin()" id="signinbutton"  style="font-family: monospace; font-weight: bold; text-align: left; ">Sign in</button>
+
+    <script>
+        function signin(){
+            let newUser = document.getElementById("newUser").value;
+            let newEmail = document.getElementById("newEmail").value;
+            let newPassword = document.getElementById("newPassword").value;
+            let confirmpassword = document.getElementById("confirmpassword").value;
+            
+            if(
+                newUser === "" ||
+                newEmail === "" ||
+                newPassword === "" ||
+                confirmpassword === ""
+            ){
+                alert("Complete the fields");
+                return;
+            }
+
+            if(newPassword !== confirmpassword){
+                alert("Passwords do not match");
+                return;
+            }
+
+            localStorage.setItem("Username",newUser);
+            localStorage.setItem("Email",newEmail);
+            localStorage.setItem("Password",newPassword);{
+                alert("Account created successfully!");
+            }
+            window.location.href = "index.html";
+        }
+    </script>
+
+    </div>
+</body>
+</html>

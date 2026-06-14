@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <style>
+        button{
+
+             width:100px; height:35px; background-color: #9CAFAA; text-align: left;
+            }
+
+        button:hover {
+            background-color: #BBD5DA;
+        }
+        #registerbutton{
+            width:200px; height:35px;
+        }
+    
+    </style>
+</head>
+<body style="text-align: center; background-color: #BFC6C4;">
+    <div style="width: 300px; height: 300px; margin: auto; margin-top: 0px; background-color: #708993; padding: 30px; box-shadow: 0px 0px 10px grey;">
+
+    <h1 style="font-size: 40px; font-family: monospace; margin-right: 100px;">Login</h1>
+
+    <input placeholder="Username" type="text" id= "userName" style=" width:200px; height: 20px;"> 
+    <br><br>
+
+    <input placeholder="Password" type="password" id="password" style=" width: 200px; height: 20px;">
+    <br><br>
+
+    <button id="loginbutton" onclick="showMessage()" style="font-family: monospace; font-weight: bold; margin-right: 100px;">Entrar</button>
+
+
+    <p style="font-family: monospace; font-weight: bold; margin-right: 40px ;">Don't have an account?</p>
+
+    <button onclick="register()" id="registerbutton"  style="font-family: monospace; font-weight: bold; ">Create Account</button>
+
+    <script>
+
+        function showMessage() {
+        let userName = document.getElementById("userName").value;
+        let password= document.getElementById("password").value;
+
+        localStorage.setItem(
+            "name",
+            userName 
+        )
+
+        let correctuserName = "Marculina"
+        let correctpassword = "0409"
+            
+        if(userName ==="" || password ===""){
+            alert("Complete the fields");
+        }
+        
+        else if(userName === correctuserName && password === correctpassword){
+           window.location.href= "home.html";
+        }
+
+        else {
+            alert("Login incorrect")
+
+        }
+        }
+         function register() {
+            window.location.href= "register.html";
+        }
+        
+    </script>
+    </div>
+</body>
+</html>
